@@ -1,5 +1,6 @@
 :root {
---color-light: #ffffff;
+    --color-light: #ffffff;
+    --color-dark: #000000;
 }
 
 * {
@@ -10,5 +11,13 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    color: var(--color-light);
+    color: var(--color-dark);
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1170px;
+    min-width: 360px;
+    padding: 0px 15px;
+    margin: 0 auto;
 }
