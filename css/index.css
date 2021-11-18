@@ -1,6 +1,12 @@
 :root {
     --color-light: #ffffff;
     --color-dark: #000000;
+    --color-grey: #dddddd;
+    --color-warm-green: #31c9c0;
+
+    --spacing-small: 10px;
+    --spacing-medium: 15px;
+    --spacing-big: 30px;
 }
 
 * {
@@ -17,7 +23,7 @@ body {
 
 .container {
     max-width: 1170px;
-    min-width: 360px;
+    min-width: 350px;
     padding: 0px 15px;
     margin: 0 auto;
 }
