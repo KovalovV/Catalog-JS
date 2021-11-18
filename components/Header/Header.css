@@ -1,0 +1,18 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-top: var(--spacing-small);
+}
+
+.cart-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-count__img {
+    height: 30px;
+    margin-right: var(--spacing-small);
+}
