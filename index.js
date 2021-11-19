@@ -3,6 +3,8 @@ function render() {
     productPage.render();
 }
 
+loader.render();
+
 let CATALOG = [];
 
 //server/catalog.json
@@ -11,8 +13,10 @@ fetch('server/catalog.json')
     .then(res => res.json())
     .then(body => {
         CATALOG = body;
+        loader.handleCloseLoader();
         render();
     })
     .catch(error => {
-        console.log(error);
+        loader.handleCloseLoader();
+        errorPage.render();
     })
