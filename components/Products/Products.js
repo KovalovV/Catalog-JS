@@ -6,8 +6,8 @@ class Products {
         this.textRemoveFromCart = 'Remove from cart';
     }
 
-    setItemLocationStorage(element, id) {
-        const { isPushProduct, products } = localStorageUtil.putProducts(id);
+    setItemLocationStorage(element, id, name, img, price) {
+        const { isPushProduct, products } = localStorageUtil.putProducts(id, name, img, price);
 
         if(isPushProduct) {
             element.classList.remove(this.activeButton);
@@ -15,6 +15,7 @@ class Products {
         } else {
             element.classList.add(this.activeButton);
             element.innerText = this.textAddToCart;
+            console.log('chage');
         }
 
         headerPage.render(products.length);
@@ -29,7 +30,9 @@ class Products {
             let activeBtnClass = ' ' + this.activeButton;
             let activeBtnText = this.textAddToCart;
 
-            if(productsStore.indexOf(id) + 1) {
+            if(indexOfArrayObj(productsStore, function (item) { 
+                return item.id == id;
+            }) + 1) {
                 activeBtnClass = ' ';
                 activeBtnText = this.textRemoveFromCart;
             }
@@ -39,7 +42,7 @@ class Products {
                     <span class="product-item__name">${name}</span>
                     <img class="product-item__img" src="${img}" alt="Phone">
                     <span class="product-item__price">${price.toLocaleString()} грн</span>
-                    <button class="product-item__btn${activeBtnClass}" onclick = "productPage.setItemLocationStorage(this, '${id}')">${activeBtnText}</button>
+                    <button class="product-item__btn${activeBtnClass}" onclick = "productPage.setItemLocationStorage(this, '${id}', '${name}', '${img}', '${price}')">${activeBtnText}</button>
                 </li>
             `;
         })
@@ -55,4 +58,3 @@ class Products {
 }
 
 const productPage = new Products();
-productPage.render();

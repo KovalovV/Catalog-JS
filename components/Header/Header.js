@@ -6,13 +6,18 @@ class Header {
         this.textRemoveFromCart = 'Remove from cart';
     }
 
+    showCart() {
+        cartPage.render()
+    }
+
     render(count = 0) {
-        const countOfProducts = count || localStorageUtil.getProducts().length;
+        const products = localStorageUtil.getProducts(); 
+        const countOfProducts = count || products.length;
 
         const html = `
         <div class="header-container">
             <h1>My shope</h1>
-            <span class="cart-count">
+            <span class="cart-count" onclick="headerPage.showCart()">
                 <img src="../img/carts.png" alt="cart" class="cart-count__img">
                 <span class="cart-count__count">${countOfProducts}</span>
             </span>
@@ -24,4 +29,3 @@ class Header {
 }
 
 const headerPage = new Header();
-headerPage.render();

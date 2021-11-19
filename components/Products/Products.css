@@ -19,7 +19,6 @@
 
 .product-item:hover {
     box-shadow: 0 6px 15px var(--color-grey);
-    
 }
 
 .product-item__name {
